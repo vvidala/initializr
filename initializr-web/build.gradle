@@ -1,0 +1,37 @@
+description = 'Spring Initializr :: Web'
+dependencies {
+    compile project(':initializr-generator')
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-mustache', version: '2.0.4.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-cache', version: '2.0.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '5.0.8.RELEASE'
+    compile group: 'org.springframework.hateoas', name: 'spring-hateoas', version: '0.25.0.RELEASE'
+    compile(group: 'org.apache.ant', name: 'ant', version: '1.10.2') {
+        exclude(module: 'ant-launcher')
+    }
+    compile group: 'javax.cache', name: 'cache-api', version: '1.1.0'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.4.RELEASE'
+    testCompile group: 'org.springframework.cloud', name: 'spring-cloud-contract-wiremock', version: '2.0.0.RELEASE'
+    testCompile project(path: ':initializr-generator', configuration: "testArtifacts")
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.4.RELEASE'
+    testCompile group: 'org.springframework.restdocs', name: 'spring-restdocs-mockmvc', version: '2.0.2.RELEASE'
+    testCompile group: 'com.vaadin.external.google', name: 'android-json', version: '0.0.20131108.vaadin1'
+    testCompile group: 'xmlunit', name: 'xmlunit', version: '1.5'
+    testCompile group: 'org.skyscreamer', name: 'jsonassert', version: '1.5.0'
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.9.1'
+    testCompile(group: 'org.seleniumhq.selenium', name: 'selenium-support', version: '3.9.1') {
+        exclude(module: 'commons-logging')
+    }
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+}
+
+task packageTests(type: Jar) {
+    from sourceSets.test.output
+    classifier = 'tests'
+}
+artifacts.archives packageTests
+configurations {
+    testArtifacts
+}
+artifacts {
+    testArtifacts packageTests
+}

@@ -1,0 +1,19 @@
+description = 'Spring Initializr :: Actuator'
+dependencies {
+    compile project(':initializr-generator')
+    compile group: 'org.springframework.boot', name: 'spring-boot-autoconfigure', version: '2.0.4.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-actuator', version: '2.0.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version: '5.0.8.RELEASE'
+    compile group: 'org.springframework.retry', name: 'spring-retry', version: '1.2.2.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-actuator-autoconfigure', version: '2.0.4.RELEASE'
+    compile group: 'io.micrometer', name: 'micrometer-core', version: '1.0.6'
+    compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '2.0.4.RELEASE'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.4.RELEASE'
+    testCompile project(path:':initializr-generator', configuration: "testArtifacts")
+    testCompile project(path:':initializr-web', configuration: "testArtifacts")
+    testCompile project(':initializr-web')
+    testCompile group: 'org.skyscreamer', name: 'jsonassert', version: '1.5.0'
+    testCompile group: 'com.jayway.jsonpath', name: 'json-path', version: '2.4.0'
+    testCompile group: 'org.springframework.restdocs', name: 'spring-restdocs-mockmvc', version: '2.0.2.RELEASE'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.4.RELEASE'
+}
