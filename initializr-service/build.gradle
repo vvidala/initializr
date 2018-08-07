@@ -1,0 +1,27 @@
+description = 'Spring Initializr :: Service'
+
+apply plugin: 'org.springframework.boot'
+buildscript {
+    ext {
+        springBootVersion = '2.0.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.0.4.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.4.RELEASE'
+    compile project(':initializr-web')
+    compile project(':initializr-actuator')
+    compile group: 'javax.cache', name: 'cache-api', version: '1.1.0'
+    compile group: 'org.ehcache', name: 'ehcache', version: '3.5.2'
+    compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.0.4.RELEASE'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.4.RELEASE'
+    testCompile project(path: ':initializr-generator', configuration: "testArtifacts")
+    testCompile group: 'xmlunit', name: 'xmlunit', version: '1.5'
+}

@@ -1,0 +1,12 @@
+rootProject.name = 'initializr'
+include ':initializr-actuator'
+//include ':initializr-docs'
+include ':initializr-generator'
+include ':initializr-web'
+include ':initializr-service'
+
+project(':initializr-actuator').projectDir = "$rootDir/initializr-actuator" as File
+//project(':initializr-docs').projectDir = "$rootDir/initializr-docs" as File
+project(':initializr-generator').projectDir = "$rootDir/initializr-generator" as File
+project(':initializr-web').projectDir = "$rootDir/initializr-web" as File
+project(':initializr-service').projectDir = "$rootDir/initializr-service" as File

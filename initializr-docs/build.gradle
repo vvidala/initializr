@@ -1,0 +1,9 @@
+description = 'Spring Initializr :: Docs'
+dependencies {
+    compile project(':initializr-generator')
+    compile project(':initializr-web')
+    compile project(':initializr-actuator')
+    testCompile project(path:':initializr-web', configuration: "testArtifacts")
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.4.RELEASE'
+    testCompile group: 'org.springframework.cloud', name: 'spring-cloud-starter-contract-stub-runner', version: '2.0.0.RELEASE'
+}
